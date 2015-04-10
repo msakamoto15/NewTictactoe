@@ -32,7 +32,7 @@ public class GameBoard{
       }
   }
 }
- public boolean computer(){
+ public boolean computer(){//Computer moves
    int count = 0;
    int i = 0;
    for(i=0;i<5;i++){
@@ -46,7 +46,8 @@ public class GameBoard{
    
    if(count < 2)
    {
-     computer1();
+     computer1();//not the smart computer
+    
    }
    else
    {
@@ -60,16 +61,19 @@ public class GameBoard{
         {
           grid[i][2] = "O";
         }
-        else
+        else if(!(grid[i][4].equals("X")))
         {
           grid[i][4] = "O";
+        }
+        else{
+          computer1();
         }
         return true;
       }
     }
     for(i=0;i<5;i=i+2){
       if(grid[0][i].equals(grid[2][i]) || grid[0][i].equals(grid[4][i]) || grid[2][i].equals(grid[4][i])){
-        if(!(grid[0][i].equals("X")) || !(grid[0][i].equals("O")))
+        if(!(grid[0][i].equals("X"))) 
         {
           grid[0][i] = "O";
         }
@@ -77,7 +81,7 @@ public class GameBoard{
         {
           grid[2][i] = "O";
         }
-        else if(!(grid[4][i].equals("X")) || !(grid[4][i].equals("O")))
+        else if(!(grid[4][i].equals("X"))) 
         {
           grid[4][i] = "O";
         }
@@ -91,33 +95,39 @@ public class GameBoard{
       if(grid[0][0].equals(grid[2][2]) || grid[0][0].equals(grid[4][4]) || (grid[2][2].equals(grid[4][4]))){//diagonal1
        if(!(grid[i][0].equals("X")))
         {
-          grid[i][0] = "O";
+          grid[0][0] = "O";
         }
-        else if(!(grid[i][2].equals("X")))
+        else if(!(grid[2][2].equals("X")))
         {
-          grid[i][2] = "O";
+          grid[2][2] = "O";
         }
-        else
+        else if(!(grid[4][4].equals("X")))
         {
-          grid[i][4] = "O";
+          grid[4][4] = "O";
+        }
+        else{
+          computer1();
         }
         return true;
       }
       if(grid[0][4].equals(grid[2][2]) || grid[0][4].equals(grid[4][0]) || grid[2][2].equals(grid[4][0])){//diagonal2
     if(!(grid[i][0].equals("X")))
         {
-          grid[i][0] = "O";
+          grid[0][4] = "O";
         }
-        else if(!(grid[i][2].equals("X")))
+        else if(!(grid[2][2].equals("X")))
         {
-          grid[i][2] = "O";
+          grid[2][2] = "O";
         }
-        else
+        else if(!(grid[4][0].equals("X")))
         {
-          grid[i][4] = "O";
+          grid[4][0] = "O";
+        }
+        else{
+          computer1();
         }
         return true;
-      }
+    }
    }
   return false;
   }
@@ -162,6 +172,7 @@ public class GameBoard{
     }
     return result;
   }
+
   
   public boolean isValidSpot(String input){
     boolean result = true;

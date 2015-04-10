@@ -4,20 +4,26 @@ public class TicTacToe {
   public static void main(String[] args){
     GameBoard myGame = new GameBoard();
   //  myGame.displayBoard();
-    int playermove;
+    String playermove = "";
     Scanner scan = new Scanner(System.in);
     boolean keepPlaying = true;
     int turns = 0;
-    
+    System.out.println("Welcome to Masa's Tic Tac Toe game! You are Player X.");
     do{
        myGame.displayBoard();
 //
        System.out.println("Choose the number that represents the option you want.");
        //scan.nextInt();
-       //playermove = scan.nextInt();
+    //   playermove = scan.nextInt();
+      
        
-       myGame.gameInput(scan.nextLine());//NEWCODE
+       if(myGame.gameInput(scan.nextLine())){
        turns++;
+       }
+       
+       System.out.println("turns = " + turns);// erase me before you turn in!!!!!!
+       
+      myGame.computer();//Code for computer
        if (myGame.checkForWinner()){
          myGame.displayBoard();
          keepPlaying = false;
