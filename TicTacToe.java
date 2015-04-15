@@ -1,11 +1,11 @@
-import java.util.Scanner;
+import java.util.Scanner;//driver
 public class TicTacToe {
   
   public static void main(String[] args){
     GameBoard myGame = new GameBoard();
   //  myGame.displayBoard();
     String playermove = "";
-    Scanner scan = new Scanner(System.in);
+    Scanner scan = new Scanner(System.in);//scanner
     boolean keepPlaying = true;
     int turns = 0;
     System.out.println("Welcome to Masa's Tic Tac Toe game! You are Player X.");
@@ -24,7 +24,7 @@ public class TicTacToe {
        System.out.println("turns = " + turns);// erase me before you turn in!!!!!!
        
       myGame.computer();//Code for computer
-       if (myGame.checkForWinner()){
+       if (myGame.checkForWinner()){//methods called here
          myGame.displayBoard();
          keepPlaying = false;
        }
